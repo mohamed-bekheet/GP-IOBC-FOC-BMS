@@ -9,7 +9,8 @@
 
 typedef struct {
 	uint8 number :6;
-	uint8 priority ;
+	uint8 groupPriority :4 ;
+	uint8 subPriority :4;
 	uint8 active :1;
 	uint8 error  :1;
 }interrupt_t
@@ -77,6 +78,12 @@ typedef enum {
 	DMA2_Channel4_5
 }interrupt_number_t;
 
+#define PRIORITY_GROUP1 0x0FA050300
+#define PRIORITY_GROUP2 0x0FA050400
+#define PRIORITY_GROUP3 0x0FA050500
+#define PRIORITY_GROUP4 0x0FA050600
+#define PRIORITY_GROUP5 0x0FA050700
+
 void interruptEnable(interrupt_t* interrupt);
 void interruptDisable(interrupt_t* interrupt);
 
@@ -85,7 +92,9 @@ void interruptClearPending(interrupt_t* interrupt);
 
 void interruptIsActive(interrupt_t* interrupt);
 
+void initInterruptPriority(void);
+void setInterruptPriority(interrupt_t* interrupt);
 
-
+void setSoftwareInterrupt(interrupt_t* interrupt);
 
 #endif

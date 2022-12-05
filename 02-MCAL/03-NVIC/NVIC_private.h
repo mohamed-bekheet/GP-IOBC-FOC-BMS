@@ -22,4 +22,11 @@
 #define NVIC_IABR0       *((volatile uint32*) 0xE000E300)
 #define NVIC_IABR0       *((volatile uint32*) 0xE000E304)
 
+#define NVIC_IPR0        *((volatile uint32*) 0xE000E400)
+#define NVIC_IPR		  ((volatile uint8*)  0xE000E400) // Pointer to access each byte of the IPR registers
+
+#define SCB_AIRCR		 *((volatile uint32*) 0xE000E014)
+
+#define NVIC_STIR        *((volatile uint32*) 0xE000EF00)
+
 #endif
