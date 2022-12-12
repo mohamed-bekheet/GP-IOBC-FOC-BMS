@@ -13,7 +13,7 @@ typedef struct {
 	uint8 subPriority :4;
 	uint8 active :1;
 	uint8 error  :1;
-}interrupt_t
+}interrupt_t;
 
 typedef enum {
 	WWDG=0,

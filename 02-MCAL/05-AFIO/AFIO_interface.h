@@ -11,8 +11,8 @@ typedef enum {
 	EXTI_PORTA=0,
 	EXTI_PORTB,
 	EXTI_PORTC,
-}interrupt_port_t
+}interrupt_port_t;
 
-sint8 AFIO_EXTI_selectPort(u8 copyPin, u8 copyPort);
+sint8 AFIO_EXTI_selectPort(uint8 copyPin, uint8 copyPort);
 
 #endif

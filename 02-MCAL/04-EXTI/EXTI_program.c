@@ -3,15 +3,13 @@
 /* Date    : 5 Dec 2022                                                                                       */
 /* Version : 01                                                                                               */
 /**************************************************************************************************************/
-
-#include <STD_TYPES.h>
-#include <BIT_MATH.h>
-#include <EXTI_interface.h>
-#include <EXTI_private.h>
-#include <EXTI_config.h>
-
+#include "../../01-LIB/STD_TYPES.h"
+#include "../../01-LIB/BIT_MATH.h"
+#include "EXTI_interface.h"
+#include "EXTI_private.h"
+#include "EXTI_config.h"
 void EXTI_enable(exti_t* exti){
-	if (exti && exti->pin<=INTERRUPT_PIN_15 && exti->trigger<=CHANGE) {
+	if (exti && exti->pin<=EXTI_PIN15 && exti->trigger<=CHANGE) {
 		SET_BIT(EXTI_IMR,exti->pin);
 		switch(exti->trigger) {
 			case RISING:
@@ -34,7 +32,7 @@ void EXTI_enable(exti_t* exti){
 }
 
 void EXTI_disable(exti_t* exti){
-	if (exti && exti->pin<=INTERRUPT_PIN_15 && exti->trigger<=CHANGE) {
+	if (exti && exti->pin<=EXTI_PIN15 && exti->trigger<=CHANGE) {
 		CLR_BIT(EXTI_IMR,exti->pin);
 	}
 	else {
@@ -43,7 +41,7 @@ void EXTI_disable(exti_t* exti){
 }
 
 void EXTI_generateSoftwareInterrupt(exti_t* exti){
-	if (exti && exti->pin<=INTERRUPT_PIN_15 && exti->trigger<=CHANGE) {
+	if (exti && exti->pin<=EXTI_PIN15 && exti->trigger<=CHANGE) {
 		SET_BIT(EXTI_SWIER,exti->pin);
 	}
 	else {

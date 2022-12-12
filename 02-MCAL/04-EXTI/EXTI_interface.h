@@ -22,22 +22,22 @@ typedef enum {
 	EXTI_PIN11,
 	EXTI_PIN12,
 	EXTI_PIN13,
-	EXTI_PIN4,
+	EXTI_PIN14,
 	EXTI_PIN15,
-}interrupt_pin_t
+}interrupt_pin_t;
 
 typedef enum {
 	RISING=0,
 	FALLING,
 	CHANGE,
-}trigger_t
+}trigger_t;
 
 typedef struct {
-	u8 pin      :4;
-	u8 trigger  :2;
-	u8 error    :1;
-	u8 reserved :1;
-}exti_t
+	uint8 pin      :4;
+	uint8 trigger  :2;
+	uint8 error    :1;
+	uint8 reserved :1;
+}exti_t;
 
 void EXTI_enable(exti_t* exti);
 void EXTI_disable(exti_t* exti);
